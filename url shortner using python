@@ -1,0 +1,19 @@
+import hashlib
+
+class URLShortener:
+    def shorten_url(self, url):
+        
+        hash_object = hashlib.sha256(url.encode())
+        hash_hex = hash_object.hexdigest()
+
+        
+        short_url = hash_hex[:8]
+
+        return short_url
+
+
+url_shortener = URLShortener()
+original_url = "https://www.linkedin.com/some/long/url"
+shortened_url = url_shortener.shorten_url(original_url)
+print(f"Original URL: {original_url}")
+print(f"Shortened URL: {shortened_url}")
